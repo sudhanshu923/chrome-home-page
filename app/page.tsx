@@ -5,10 +5,10 @@ import React, { useState } from 'react';
 const ChromeHomePage = () => {
   const [query, setQuery] = useState('');
 
-  const handleSearch = (e) => {
-    e.preventDefault(); // Prevent form from reloading the page
+  const handleSearch = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
     if (query.trim()) {
-      // Redirect to Google's search page with the search query
+      
       window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
     }
   };
